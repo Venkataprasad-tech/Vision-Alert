@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vision Alert - Payment</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ─────── HEADER ─────── -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><i class="fas fa-shield-alt"></i> Vision Alert</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─────── PAYMENT SECTION ─────── -->
+  <section class="payment-section">
+    <div class="container">
+      <div class="payment-container">
+
+        <!-- Plan Summary -->
+        <div class="payment-summary">
+          <h2>Complete Your Subscription</h2>
+          <div class="plan-details">
+            <h3 id="plan-name">Family Protection</h3>
+            <div class="price" id="plan-price">₹1</div>
+            <span id="plan-period">1 Month Plan</span>
+            <div class="plan-date">
+              <strong>Date:</strong> <i class="fas fa-calendar-alt"></i>
+              <span id="current-date"></span>
+            </div>
+          </div>
+
+          <div class="benefits">
+            <h4>You’ll get:</h4>
+            <ul id="plan-features">
+              <li>All Basic Features</li>
+              <li>5 Emergency Contacts</li>
+              <li>Advanced Detection</li>
+              <li>Detailed Reports</li>
+              <li>24/7 Support</li>
+            </ul>
+          </div>
+
+          <!-- UPI ID Input (Optional) -->
+          <div class="upi-id-container">
+            <label for="upi-id-input">Enter Your UPI ID (Optional):</label>
+            <input type="text" id="upi-id-input" placeholder="example@upi" />
+          </div>
+
+          <!-- Proceed Button -->
+          <button id="proceed-btn" class="btn btn-primary">
+            Pay <span id="payment-amount">₹1</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="js/payment.js"></script>
+</body>
+</html>

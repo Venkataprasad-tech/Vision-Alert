@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Failed</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .failure-container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #ffeaea;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .failure-container h1 {
+      color: #dc3545;
+    }
+
+    .failure-container p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .failure-container .highlight {
+      font-weight: bold;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="failure-container">
+    <h1>❌ Payment Failed</h1>
+    <p>Amount: <span class="highlight" id="failed-amount">₹--</span></p>
+    <p>Transaction ID: <span class="highlight" id="txn-id">---</span></p>
+    <p>Redirecting to try again in <span id="countdown">5</span> seconds...</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("failed-amount").textContent = `₹${params.get("amount") || '--'}`;
+    document.getElementById("txn-id").textContent = params.get("txnId") || '---';
+
+    // Countdown and redirect
+    let seconds = 5;
+    const countdown = document.getElementById("countdown");
+    const interval = setInterval(() => {
+      seconds--;
+      countdown.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(interval);
+        window.location.href = "payment.html"; // Go back to payment page
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision Alert</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style></style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo"><i class="fas fa-shield-alt"></i>Vision Alert</div>
+          <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#demo">How It Works</a></li>
+            <li><a href="subscribe.html">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <a href="#" class="btn btn-outline">Log In</a>
+            <a href="#" class="btn btn-primary">Sign Up</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Video Background -->
+      <div class="hero-video-container">
+        <video autoplay loop muted playsinline class="hero-video">
+          <source
+            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+
+      <!-- Content Container -->
+      <div class="container hero-content-container">
+        <div class="hero-content">
+          <h1>Your Safety, Our Priority</h1>
+          <p>
+            Vision Alert provides real-time accident detection, emergency
+            location sharing, and instant alerts to your contacts when you need
+            help the most.
+          </p>
+          <div class="cta-buttons">
+            <button id="freeTrialBtn" class="btn btn-outline">
+              Start Free Trial
+            </button>
+            <a href="subscribe.html" class="btn btn-primary">Get Protected</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Life-Saving Features</h2>
+          <p>
+            Vision Alert combines advanced technology with simple operation to
+            keep you safe
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-car-crash"></i>
+            </div>
+            <h3>Accident Detection</h3>
+            <p>
+              Our AI-powered system automatically detects accidents and triggers
+              emergency protocols.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h3>Real-Time Location</h3>
+            <p>
+              Share your precise location with emergency contacts and services
+              instantly.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <h3>Instant Alerts</h3>
+            <p>
+              Automatically notify your emergency contacts with your location
+              and situation.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Emergency Contacts</h3>
+            <p>
+              Quickly connect with your pre-set emergency contacts with one tap.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h3>Incident Reporting</h3>
+            <p>
+              Generate detailed reports of incidents for insurance and legal
+              purposes.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>24/7 Support</h3>
+            <p>Access to emergency support team anytime, anywhere.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+      <div class="container">
+        <div class="section-title">
+          <h2>How Vision Alert Works</h2>
+          <p>See our safety system in action</p>
+        </div>
+        <div class="demo-container">
+          <div class="demo-content">
+            <h3>Instant Protection in 3 Steps</h3>
+            <div class="steps-wrapper">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Detection</h4>
+                  <p>
+                    Our system automatically detects accidents using advanced
+                    sensors and AI.
+                  </p>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Alert</h4>
+                  <p>
+                    Immediate notifications are sent to your emergency contacts
+                    with your exact location.
+                  </p>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Response</h4>
+                  <p>
+                    Help is on the way with all the information they need to
+                    assist you quickly.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="demo-cta">
+              <button class="btn btn-primary pulse-effect">
+                Watch Full Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Modal Overlay -->
+    <div id="videoModal" class="video-modal">
+      <div class="modal-content">
+        <video id="demoVideo" controls controlsList="nodownload">
+          <source
+            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+        <button
+          id="closeModal"
+          style="
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+          "
+        >
+          ×
+        </button>
+      </div>
+    </div>
+
+    <!-- Blur Overlay (separate from modal) -->
+    <div id="blurOverlay" class="blur-overlay"></div>
+
+    <!-- Emergency Contact Section -->
+    <section id="contact" class="emergency-contact">
+      <div class="container">
+        <div class="emergency-content">
+          <h2>Need Immediate Assistance?</h2>
+          <p>Our emergency response team is available 24/7 to help you</p>
+          <div class="emergency-action">
+            <a href="tel:+911234567890" class="emergency-btn pulse">
+              <i class="fas fa-phone-alt"></i> Contact Emergency Support
+            </a>
+            <p class="emergency-note">
+              For immediate help, call directly:
+              <strong>+91 12345 67890</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

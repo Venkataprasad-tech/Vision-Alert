@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Successful</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .success-container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #e6ffed;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .success-container h1 {
+      color: #28a745;
+    }
+
+    .success-container p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .success-container .highlight {
+      font-weight: bold;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <h1>🎉 Payment Successful!</h1>
+    <p>Amount Paid: <span class="highlight" id="paid-amount">₹--</span></p>
+    <p>Transaction ID: <span class="highlight" id="txn-id">---</span></p>
+    <p>Redirecting to homepage in <span id="countdown">5</span> seconds...</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("paid-amount").textContent = `₹${params.get("amount") || '--'}`;
+    document.getElementById("txn-id").textContent = params.get("txnId") || '---';
+
+    // Countdown and redirect
+    let seconds = 5;
+    const countdown = document.getElementById("countdown");
+    const interval = setInterval(() => {
+      seconds--;
+      countdown.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(interval);
+        window.location.href = "index.html"; // Change to your homepage
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision Alert</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      :root {
+        --primary: #e63946;
+        --primary-dark: #c1121f;
+        --secondary: #1d3557;
+        --accent: #457b9d;
+        --light: #f1faee;
+        --dark: #212529;
+        --gray: #6c757d;
+        --light-gray: #f8f9fa;
+        --success: #2a9d8f;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        margin-bottom: 10px;
+      }
+
+      .section-title p {
+        color: var(--gray);
+        font-size: 1.1rem;
+      }
+
+      .pricing-toggle {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .toggle-container {
+        background: var(--light-gray);
+        border-radius: 50px;
+        padding: 5px;
+        display: inline-flex;
+      }
+
+      .toggle-btn {
+        padding: 10px 25px;
+        border: none;
+        background: transparent;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .toggle-btn.active {
+        background: white;
+        color: var(--primary);
+        box-shadow: var(--shadow);
+      }
+
+      .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .pricing-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px 30px;
+        position: relative;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease;
+        border: 1px solid #eee;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .pricing-card.popular {
+        border: 2px solid var(--primary);
+      }
+
+      .popular-badge {
+        position: absolute;
+        right: 1px;
+        background: var(--primary);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 1;
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--secondary);
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .price span {
+        font-size: 1rem;
+        color: var(--gray);
+        font-weight: normal;
+      }
+
+      .pricing-features {
+        list-style: none;
+        margin-bottom: 30px;
+        padding: 0;
+      }
+
+      .pricing-features li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .pricing-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--success);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .duration-info {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin-bottom: 15px;
+      }
+
+      .savings-badge {
+        display: inline-block;
+        background-color: #e8f5e9;
+        color: #2e7d32;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 8px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .pricing-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          gap: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .toggle-btn {
+          padding: 8px 15px;
+          font-size: 0.9rem;
+        }
+
+        .pricing-card {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo"><i class="fas fa-shield-alt"></i> Vision Alert</div>
+          <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#demo">How It Works</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="pricing">
+      <div class="container">
+        <div class="section-title">
+          <h2>Choose Your Protection Plan</h2>
+          <p>Select the plan that fits your safety needs</p>
+        </div>
+        <div class="pricing-toggle">
+          <div class="toggle-container">
+            <button class="toggle-btn active" data-period="monthly">
+              Monthly
+            </button>
+            <button class="toggle-btn" data-period="yearly">Yearly</button>
+          </div>
+        </div>
+
+        <!-- Monthly Plans -->
+        <div class="pricing-cards" id="monthly-plans">
+          <div class="pricing-card">
+            <h3>1 Month Plan</h3>
+            <div class="price">₹1</div>
+            <!-- Changed from ₹299 to ₹1 for testing -->
+            <div class="duration-info">Billed once for 1 month</div>
+            <ul class="pricing-features">
+              <li>All Premium Features</li>
+              <li>Unlimited Contacts</li>
+              <li>Priority Emergency Response</li>
+              <li>Advanced Detection</li>
+              <li>Professional Reports</li>
+            </ul>
+            <a
+              href="payment.html?plan=1-month&amount=1&period=1-month"
+              class="btn btn-outline"
+              >Choose Plan</a
+            >
+          </div>
+          <div class="pricing-card popular">
+            <div class="popular-badge">Popular</div>
+            <h3>3 Months Plan</h3>
+            <div class="price">
+              ₹807 <span class="savings-badge">Save 10%</span>
+            </div>
+            <div class="duration-info">Billed ₹269 per month (Total ₹807)</div>
+            <ul class="pricing-features">
+              <li>All Premium Features</li>
+              <li>Unlimited Contacts</li>
+              <li>Priority Emergency Response</li>
+              <li>Advanced Detection</li>
+              <li>Professional Reports</li>
+            </ul>
+            <a
+              href="payment.html?plan=3-months&amount=807&period=3-months"
+              class="btn btn-primary"
+              >Choose Plan</a
+            >
+          </div>
+          <div class="pricing-card">
+            <h3>6 Months Plan</h3>
+            <div class="price">
+              ₹1,435 <span class="savings-badge">Save 20%</span>
+            </div>
+            <div class="duration-info">
+              Billed ₹239 per month (Total ₹1,435)
+            </div>
+            <ul class="pricing-features">
+              <li>All Premium Features</li>
+              <li>Unlimited Contacts</li>
+              <li>Priority Emergency Response</li>
+              <li>Advanced Detection</li>
+              <li>Professional Reports</li>
+            </ul>
+            <a
+              href="payment.html?plan=6-months&amount=1435&period=6-months"
+              class="btn btn-outline"
+              >Choose Plan</a
+            >
+          </div>
+        </div>
+
+        <!-- Yearly Plans (initially hidden) -->
+        <div class="pricing-cards hidden" id="yearly-plans">
+          <div class="pricing-card">
+            <h3>1 Year Plan</h3>
+            <div class="price">₹2,999</div>
+            <div class="duration-info">Billed once for 12 months</div>
+            <ul class="pricing-features">
+              <li>All Premium Features</li>
+              <li>Unlimited Contacts</li>
+              <li>Priority Emergency Response</li>
+              <li>Advanced Detection</li>
+              <li>Professional Reports</li>
+            </ul>
+            <a
+              href="payment.html?plan=1-year&amount=2999&period=1-year"
+              class="btn btn-outline"
+              >Choose Plan</a
+            >
+          </div>
+          <div class="pricing-card popular">
+            <div class="popular-badge">Popular</div>
+            <h3>2 Years Plan</h3>
+            <div class="price">
+              ₹5,098 <span class="savings-badge">Save 15%</span>
+            </div>
+            <div class="duration-info">
+              Billed ₹212 per month (Total ₹5,098)
+            </div>
+            <ul class="pricing-features">
+              <li>All Premium Features</li>
+              <li>Unlimited Contacts</li>
+              <li>Priority Emergency Response</li>
+              <li>Advanced Detection</li>
+              <li>Professional Reports</li>
+            </ul>
+            <a
+              href="payment.html?plan=2-years&amount=5098&period=2-years"
+              class="btn btn-primary"
+              >Choose Plan</a
+            >
+          </div>
+          <div class="pricing-card">
+            <h3>Lifetime Plan</h3>
+            <div class="price">
+              ₹8,999 <span class="savings-badge">Save 25%</span>
+            </div>
+            <div class="duration-info">
+              One-time payment for lifetime access
+            </div>
+            <ul class="pricing-features">
+              <li>All Premium Features</li>
+              <li>Unlimited Contacts</li>
+              <li>Priority Emergency Response</li>
+              <li>Advanced Detection</li>
+              <li>Professional Reports</li>
+            </ul>
+            <a
+              href="payment.html?plan=lifetime&amount=8999&period=lifetime"
+              class="btn btn-outline"
+              >Choose Plan</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Razorpay SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle between monthly and yearly plans
+        const toggleBtns = document.querySelectorAll(".toggle-btn");
+        const monthlyPlans = document.getElementById("monthly-plans");
+        const yearlyPlans = document.getElementById("yearly-plans");
+
+        toggleBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            // Update active state
+            toggleBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // Show/hide plans
+            if (this.dataset.period === "monthly") {
+              monthlyPlans.classList.remove("hidden");
+              yearlyPlans.classList.add("hidden");
+            } else {
+              monthlyPlans.classList.add("hidden");
+              yearlyPlans.classList.remove("hidden");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
